@@ -4,12 +4,24 @@
 #include <unordered_set>
 using namespace std;
 
+// Approach: BFS Method
+// Time Complexity: O(V + E) or O(M * N)
+// here, V = M = WordList size
+// and, E = connections between strings
+// N = length of string 
+
+// Space Complexity: O(V)
+
 // In this question, we have to reach to endWord from beginWord by replacing 
 // the characters of strings and if the new string is present in the wordList.
 // We will proceed and continue till we get the endWord.
 
 // Here we are using the BFS Algorithm because when we are replacing the characters
 // in any string, we can get multiple strings which are present in wordList.
+// So, we take the queue for BFS and keep current string with chain length, 
+// every time we get a string and chain length we replace the characters to that
+// string and check is it present in wordList or not, if yes add to the queue
+// with increase in chain length. 
 
 int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
     unordered_set<string> set;
