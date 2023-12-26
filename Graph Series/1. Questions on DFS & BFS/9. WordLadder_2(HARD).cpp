@@ -6,6 +6,13 @@ using namespace std;
 
 // Simpler Method 
 
+// In this method, there is a little change. In previous problem, we erase the
+// string when we push it in queue so that It will not get repeat. But here, 
+// we consider levels and we erase all the strings on one level together. Also,
+// we will take the queue of vector to store the strings in vector at every step.
+// And, when we get the endWord in queue, we add the vector in ans and continue
+// exploring other chains till queue becomes empty.
+
 vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {
     vector<vector<string>> ans;
 
@@ -69,6 +76,16 @@ vector<vector<string>> findLadders(string beginWord, string endWord, vector<stri
 }
 
 // Hard method but Improved Time and Space Complexity
+
+// In this method, we do the process in two steps to save memory of storing
+// strings array in queue. First, we proceed with general previous problem but
+// take a map as parameter which stores the chain Length till every string.
+
+// Secondly, when we get the map having strings with chain length at that string,
+// we do backtracking and get the strings in reverse order by starting with 
+// endWord. And, now performs dfs starts from endWord and go till beginWord.
+// When we get the beginWord, reverse the seq array which we are carrying to 
+// store all the chains and add to the ans and reverse again to backtrack.
 
 void bfs(string beginWord, string endWord, int n, vector<string> &wordList, unordered_map<string, int> &map) {
     unordered_set<string> set;
