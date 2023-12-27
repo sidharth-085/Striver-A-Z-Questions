@@ -6,6 +6,14 @@ using namespace std;
 
 // Simpler Method 
 
+// Time Complexity: O(M * N)
+// M = Length of the word
+// N = Number of words in wordList
+
+// Space Complexity: O(M * N)
+// because the queue now stores, vector and vector can contain at max all words
+// of the wordList to go from beginWord to endWord.
+
 // In this method, there is a little change. In previous problem, we erase the
 // string when we push it in queue so that It will not get repeat. But here, 
 // we consider levels and we erase all the strings on one level together. Also,
@@ -76,6 +84,14 @@ vector<vector<string>> findLadders(string beginWord, string endWord, vector<stri
 }
 
 // Hard method but Improved Time and Space Complexity
+
+// Time Complexity: O(M * N)
+// M = Length of the word
+// N = Number of words in wordList
+
+// Space Complexity: O(M * N)
+// because the seq can stores, vector and vector can contain at max all words
+// of the wordList to go from beginWord to endWord.
 
 // In this method, we do the process in two steps to save memory of storing
 // strings array in queue. First, we proceed with general previous problem but
