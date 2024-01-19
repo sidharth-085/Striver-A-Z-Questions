@@ -22,7 +22,7 @@ class DSU {
     public: 
 
     DSU(int n) {
-        size.resize(n, 0);
+        size.resize(n, 1);
         parent.resize(n);
         
         for (int i=0; i<n; i++) {
