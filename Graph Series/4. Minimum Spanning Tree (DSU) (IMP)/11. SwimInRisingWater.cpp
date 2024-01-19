@@ -50,6 +50,33 @@ class DSU {
     }
 };
 
+// In this question, we have to find the minimum time to so that the
+// person starting at (0, 0) can reach to (n - 1, n - 1) in minimum
+// time. And given that, the value of the cell which is also depth 
+// of the cell and time is same 't'. So, for reaching at any cell
+// it takes 't' time, but if the current cell value is more than 
+// adjacent value, there is not time addition it can swim if adjacent
+// cell value is small. 
+
+// This question is best example of Kruskal's Algorithm. So firstly,
+// we sort all the cell values according to the cell value. After 
+// sorting, we start iterating on every cell and now we get the 
+// value of the cell with row and col. We just, check in all 4 directions
+// if the value of adjacent cell (newRow, newCol) is less than current
+// cell value (row, col) only then, we can move because there is no
+// time required when adjacent cell has less value, so we can go to
+// adjacent cell from current then, we can make union of both nodes
+// (make node by the help of (row * n) + col). Then, after checking
+// all 4 directions and making union of nodes, we just check that 
+// the ultimate parent of (0, 0) and (n - 1, n - 1) using DSU are
+// same or not, if same it means after the current cell, when we are
+// checking for adjacent nodes, we merged the (n - 1, n - 1) with
+// current component. So, the answer minTime will be value of current
+// cell in grid.
+
+// Time Complexity: (N * N * a(N * N))
+// Space Complexity: O(N * N)
+
 int swimInWater(vector<vector<int>>& grid) {
     int n = grid.size();
 
