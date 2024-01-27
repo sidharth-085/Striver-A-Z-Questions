@@ -40,7 +40,7 @@ class DSU {
         return parent[vertex] = temp;
     }
 
-    bool unionByRank(int u, int v) {
+    bool unionBySize(int u, int v) {
         int up_u = findParent(u);
         int up_v = findParent(v);
 
